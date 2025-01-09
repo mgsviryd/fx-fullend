@@ -1,0 +1,76 @@
+# Docker:
+#   https://www.youtube.com/watch?v=uLp-zgset00
+
+#   * make sure you set up and logged in docker
+#   https://www:vector-logic:com/blog/posts/mysql-localhost: - to change mysql default localhost address from 0.0.0.0 to 127.0.0.1
+#     $ mysql -h 127.0.0.1 -P <port> --username=<user> --password='<password>'
+
+#     $ sudo lsof -i -n -P | grep TCP   :to see ports on Mac
+#     $ netstat -n -a –o                :to see ports on Windows
+#     $ nc -zv <host> <port>            :to see connection to <host> <port>
+
+
+#     $ docker inspect <container_id> | grep IPAddress :to see ip-address of container
+
+#     $ docker ps -a                    :to list all containers
+#     $ docker images                   :to list all images
+
+#     $ docker compose up --build       :to build images and start containers
+#     $ docker compose down             :to stop containers and remove containers
+#     $ docker compose down --rmi 'all' :to stop containers and remove containers and images
+#         params: -f <docker-compose-filename>      :to specify for executing a docker-compose file
+
+#  mysql -u root -p'Mikhail!2000' -P 3306 -h localhost --protocol=tcp
+networks:
+  dev:
+#volumes:
+#  mysql-data:
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - 80:80
+    volumes:
+      - './nginx.conf:/etc/nginx/nginx.conf'
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - dev
+
+  backend:
+    build:
+      context: ./fx-backend
+    networks:
+      - dev
+#    depends_on:
+#      mysqldb:
+#        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+
+  frontend:
+    build:
+      context: ./fx-frontend
+    networks:
+      - dev
+
+#  mysqldb:
+#    image: mysql:8.0
+#    volumes:
+#      - mysql-data:/var/lib/mysql
+#    environment:
+#      - MYSQL_DATABASE=${MYSQL_DATABASE}
+#      - MYSQL_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+#    ports:
+#      - ${MYSQL_PORTS}
+#    networks:
+#      - dev
+#    healthcheck:
+#      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+#      retries: 10
+#      interval: 3s
+#      timeout: 30s
