@@ -2,8 +2,7 @@
 #   https://www.youtube.com/watch?v=uLp-zgset00
 
 #   * make sure you set up and logged in docker
-#   https://www:vector-logic:com/blog/posts/mysql-localhost: - to change mysql default localhost address from 0.0.0.0 to 127.0.0.1
-#     $ mysql -h 127.0.0.1 -P <port> --username=<user> --password='<password>'
+#   * $ mysql --protocol=tcp -h localhost -P <port> -u '<user>' -p <database> :to open mysql monitor
 
 #     $ sudo lsof -i -n -P | grep TCP   :to see ports on Mac
 #     $ netstat -n -a –o                :to see ports on Windows
@@ -20,7 +19,6 @@
 #     $ docker compose down --rmi 'all' :to stop containers and remove containers and images
 #         params: -f <docker-compose-filename>      :to specify for executing a docker-compose file
 
-#  mysql -u root -p'Mikhail!2000' -P 3306 -h localhost --protocol=tcp
 networks:
   dev:
 #volumes:
@@ -40,6 +38,8 @@ services:
       - dev
 
   backend:
+    ports:
+      - 8080:8080
     build:
       context: ./fx-backend
     networks:
@@ -70,7 +70,7 @@ services:
 #    networks:
 #      - dev
 #    healthcheck:
-#      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+#      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
 #      retries: 10
 #      interval: 3s
 #      timeout: 30s
