@@ -21,12 +21,14 @@
 
 # When multiple docker-compose.yml and .env files in root:
 
-#     $ docker compose -f docker-compose.yml --env-file .env up --build       :to build images and start containers
-#     $ docker compose -f docker-compose.yml --env-file .env down             :to stop containers and remove containers
-#     $ docker compose -f docker-compose.yml --env-file .env down --rmi 'all' :to stop containers and remove containers and images
+#     $ docker compose -f docker-compose.yml --env-file .env.mysqldb up --build       :to build images and start containers
+#     $ docker compose -f docker-compose.yml --env-file .env.mysqldb down             :to stop containers and remove containers
+#     $ docker compose -f docker-compose.yml --env-file .env.mysqldb down --rmi 'all' :to stop containers and remove containers and images
 
 networks:
   dev:
+volumes:
+  mysql-data:
 
 services:
   nginx:
@@ -48,6 +50,9 @@ services:
       context: ./fx-backend
     networks:
       - dev
+    depends_on:
+      mysqldb:
+        condition: service_healthy
     environment:
       - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
       - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
@@ -58,3 +63,20 @@ services:
       context: ./fx-frontend
     networks:
       - dev
+
+  mysqldb:
+    image: mysql:8.0
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+    ports:
+      - ${MYSQL_PORTS}
+    networks:
+      - dev
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      retries: 10
+      interval: 3s
+      timeout: 30s
