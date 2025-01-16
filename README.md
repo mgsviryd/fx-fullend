@@ -52,10 +52,10 @@ git clone https://github.com/mgsviryd/fx-frontend.git
 ```shell
 nano .env
 ```
-Paste and edit <your_mysql_username>, <your_mysql_password>):
+Paste and edit <your_db_name>, <your_mysql_username>, <your_mysql_password>:
 
 ```
-SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/fx?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/<your_db_name>?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
 SPRING_DATASOURCE_USERNAME=<your_mysql_username>
 SPRING_DATASOURCE_PASSWORD=<your_mysql_password>
 ```
