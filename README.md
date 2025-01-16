@@ -9,9 +9,7 @@ Vite gives quick hot-reload page which important for development.
 ---
 
 ## Environment
- 
-> ### [**Docker**](https://www.docker.com/)  
-> Platform designed to help developers build, share, and run container applications
+
 #### Mac OS
 | Name                              | Description                                                                                                                                                                            |
 |-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
