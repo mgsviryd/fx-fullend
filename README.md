@@ -1,11 +1,10 @@
 # fx-fullend: start via docker fx-backend + fx-frontend   🚀
 
-This template should help get you started developing with Vue 3 in Vite.
+This template should help get you started developing with Docker to run backend and frontend projects.
 
-Here is SPA application - single index.html loads once and uses vue-router to navigate between pages.
-
-Vite gives quick hot-reload page which important for development.
-
+Let's run via Docker two projects:
+1. [fx-backend](https://github.com/mgsviryd/fx-backend.git) : Spring Boot 3 + REST Api + JPA 
+2. [fx-frontend](https://github.com/mgsviryd/fx-frontend.git): Vue 3 + Vite
 ---
 
 ## Environment
@@ -14,6 +13,7 @@ Vite gives quick hot-reload page which important for development.
 | Name                              | Description                                                                                                                                                                            |
 |-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [brew](https://brew.sh/)          | Manager to install and control versions of packages, e.g. `jdk` and `maven`<br/> ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"``` |
+| [nano](https://brew.sh/)                            | Command-line editor<br/> `brew install nano`                                                                                                                                 |
 | [git](https://git-scm.com/)    | Version control system<br/>```brew install git```                                                                                                                                      |
 | [docker](https://www.docker.com/) | Platform designed to help developers build, share, and run container applications<br/>```brew install docker```                                                                        |
 
@@ -21,6 +21,7 @@ Vite gives quick hot-reload page which important for development.
 | Name                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [chocolatey](https://chocolatey.org/) | Manager to install and control versions of packages, e.g. `jdk` and `maven`<br/>```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"<br/>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))``` |
+| [nano](https://chocolatey.org/)                      | Command-line editor<br/>```choco install nano```                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | [git](https://git-scm.com/)         | Version control system<br/>```choco install git -y``` |
 | [docker](https://www.docker.com/)     | Platform designed to help developers build, share, and run container applications<br/>```choco install docker-desktop```                                                                                                                                                                                                                                                                                                                                           |
 
@@ -49,6 +50,7 @@ git clone https://github.com/mgsviryd/fx-frontend.git
 
 ### Create .env file and set environment variables
 #### Variant 1
+Create .env file manually or use next command-line:
 ```shell
 nano .env
 ```
@@ -61,6 +63,7 @@ SPRING_DATASOURCE_PASSWORD=<your_mysql_password>
 ```
 
 #### Variant 2
+Create .env.mysqldb file manually or use next command-line:
 ```shell
 nano .env.mysqldb
 ```
