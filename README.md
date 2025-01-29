@@ -9,27 +9,27 @@ Let's run via Docker two projects:
 
 ## Environment
 
-#### Mac OS
-| Name                              | Description                                                                                                                                                                            |
-|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [brew](https://brew.sh/)          | Manager to install and control versions of packages, e.g. `jdk` and `maven`<br/> ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"``` |
-| [nano](https://brew.sh/)                            | Command-line editor<br/> `brew install nano`                                                                                                                                 |
-| [git](https://git-scm.com/)    | Version control system<br/>```brew install git```                                                                                                                                      |
-| [docker](https://www.docker.com/) | Platform designed to help developers build, share, and run container applications<br/>```brew install docker```                                                                        |
+#### Mac / Linux
+| Name                              | Description                                                                                                                                                                       |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [brew](https://brew.sh/)          | Manager to install and control versions of packages, e.g. `jdk` and `maven`<br/> `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` |
+| [nano](https://brew.sh/)                            | Command-line editor<br/> `brew install nano`                                                                                                                                      |
+| [git](https://git-scm.com/)    | Version control system<br/>`brew install git`                                                                                                                                      |
+| [docker](https://www.docker.com/) | Platform designed to help developers build, share, and run container applications<br/>`brew install docker`                                                                       |
 
-#### PC
-| Name                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [chocolatey](https://chocolatey.org/) | Manager to install and control versions of packages, e.g. `jdk` and `maven`<br/>```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"<br/>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))``` |
-| [nano](https://chocolatey.org/)                      | Command-line editor<br/>```choco install nano```                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| [git](https://git-scm.com/)         | Version control system<br/>```choco install git -y``` |
-| [docker](https://www.docker.com/)     | Platform designed to help developers build, share, and run container applications<br/>```choco install docker-desktop```                                                                                                                                                                                                                                                                                                                                           |
+#### Windows
+| Name                                         | Description                                                                                                                               |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| [chocolatey](https://chocolatey.org/install) | Manager to install and control versions of packages, e.g. `jdk` and `maven`<br/>[Install](https://docs.chocolatey.org/en-us/choco/setup/) |
+| [nano](https://chocolatey.org/)              | Command-line editor<br/>`choco install nano`                                                                                              |
+| [git](https://git-scm.com/)                  | Version control system<br/>[Install](https://git-scm.com/book/ru/v2/%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-Git)                                                                                                    |
+| [docker](https://www.docker.com/)            | Platform designed to help developers build, share, and run container applications<br/>[Install](https://docs.docker.com/desktop/)         |
 
 ---
 ## Variants
-> Describe 2 variants to start project via docker:
-1. mysql on your localhost (use `docker-compose.yml` and `.env` files)
-2. mysql on your docker (use `docker-compose.mysqldb.yml` and `.env.mysqldb` files)
+> Describe 2 variants to start project via Docker:
+1. MySQL on your localhost (use `docker-compose.yml` and `.env` files)
+2. MySQL on your Docker (use `docker-compose.mysqldb.yml` and `.env.mysqldb` files)
 
 
 ## Pre-setup
