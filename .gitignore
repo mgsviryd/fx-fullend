@@ -27,3 +27,10 @@ dist-ssr
 .env/
 .env
 .env.*
+
+### Git ###
+fx-backend
+fx-frontend
+
+### Upload ###
+upload
