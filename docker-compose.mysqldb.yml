@@ -21,9 +21,9 @@
 
 # When multiple docker-compose.yml and .env files in root:
 
-#     $ docker compose -f docker-compose.yml --env-file .env.mysqldb up --build       :to build images and start containers
-#     $ docker compose -f docker-compose.yml --env-file .env.mysqldb down             :to stop containers and remove containers
-#     $ docker compose -f docker-compose.yml --env-file .env.mysqldb down --rmi 'all' :to stop containers and remove containers and images
+#     $ docker compose -f docker-compose.mysqldb.yml --env-file .env.mysqldb up --build       :to build images and start containers
+#     $ docker compose -f docker-compose.mysqldb.yml --env-file .env.mysqldb down             :to stop containers and remove containers
+#     $ docker compose -f docker-compose.mysqldb.yml --env-file .env.mysqldb down --rmi 'all' :to stop containers and remove containers and images
 
 networks:
   dev:
